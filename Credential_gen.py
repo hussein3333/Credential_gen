@@ -1,8 +1,6 @@
 """
-Credential_gen
+Credential_gen.py
 --------------------
-
-This tool ...
 
 Usage:
     This tool fetches a temporary email address (using 10MinuteMail),
