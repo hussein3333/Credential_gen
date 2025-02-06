@@ -9,11 +9,11 @@ Usage:
     and logs important operations into a SQLite database.
 
 Requirements:
-    - Python 3.x
-    - cryptography: pip install cryptography
-    - requests: pip install requests
-    - beautifulsoup4: pip install beautifulsoup4
+    <br />- Python 3.x
+    <br />- cryptography: pip install cryptography
+    <br />- requests: pip install requests
+    <br />- beautifulsoup4: pip install beautifulsoup4
 
 TO-DO:
-    - Discord webhook logs
-    - Password saver
+    <br />- Discord webhook logs
+    <br />- Password saver
