@@ -200,7 +200,7 @@ def session_filename(email: str) -> str:
     return os.path.join(SESSION_DIR, f"session_{sanitize_email(email)}.dat") # Return filename for storing session data
 
 
-# Save the session's cookies to a file, optionally encrypting with encryption_key.
+# Save the session's cookies to a file, optionally encrypting with encryption_key if given.
 def save_session(email: str, session_obj: requests.Session, encryption_key: str = None):
     filename = session_filename(email)
     try:
@@ -214,7 +214,7 @@ def save_session(email: str, session_obj: requests.Session, encryption_key: str 
         logger.error(f"Error saving session for {email}: {e}")
 
 
-# Load the session's cookies from a file, optionally decrypting with encryption_key.
+# Load the session's cookies from a file, optionally decrypting with encryption_key if given.
 def load_session(email: str, session_obj: requests.Session, encryption_key: str = None):
     filename = session_filename(email)
     if not os.path.exists(filename):
@@ -231,7 +231,7 @@ def load_session(email: str, session_obj: requests.Session, encryption_key: str 
     logger.info(f"Session loaded for {email} (from {filename})")
 
 
-# Fetch a new temporary email address from 10MinuteMail.
+# Fetch a new temp email
 def get_temp_email(session: requests.Session) -> str:
     response = session.get(BASE_URL + "/")
     soup = BeautifulSoup(response.text, "html.parser")
@@ -244,7 +244,7 @@ def get_temp_email(session: requests.Session) -> str:
         logger.error("Failed to retrieve temporary email from 10MinuteMail.")
         return None
 
-# Retrieve and display the contents of specific email from inbox
+# Retrieve contents of specific email from inbox
 def get_email_contents(session: requests.Session, email_url: str):
     full_url = f"{BASE_URL}/{email_url.lstrip('/')}"
     logger.info(f"Fetching email content from: {full_url}")
